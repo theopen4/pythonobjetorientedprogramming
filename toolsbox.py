@@ -44,6 +44,29 @@ class Hammer:
             def loosen_screw(self,screw):
                 """loosen screw"""
                 pass
+
+class Crewn:
+    """vis"""
+    MAX_TIGHTNESS = 5
+    def __init__(self) :
+        """initialise le degre de  serage"""
+        self.tightness = 0 
+
+    def loosen(self):
+        """loosen crewn"""
+        if self.tightness > 0:
+            self.tightness -= 1
+
+    def tighten(self):
+        """tighten crewn"""
+        if self.tightness < 0:
+            self.tightness += 1
+
+    def __str__(self):
+        """retourne une forme visible de l objet"""
+        return "the tighten screw is {}".format(self.tightness)   
+
+
         
 
 
