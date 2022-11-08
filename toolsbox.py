@@ -106,3 +106,33 @@ class Nail:
         wall_state = "dans le mur" if self.in_wall else "hors du mur"
         return f"Clou {wall_state}."
 
+toolbox_1 = ToolBox()
+screwdriver_1 = Screwdriver()
+hammer_1= Hammer()
+
+"""def put_hammer_in_toolsbox(hammer):
+    hammer_1.color = hammer
+    toolbox_1.add_tool(hammer)
+    
+put_hammer_in_toolsbox("blanc-caki")
+print(toolbox_1.tools)"""
+
+toolbox_1.add_tool(hammer_1)
+toolbox_1.add_tool(screwdriver_1)
+screw_1 = Screw()
+
+def loosen_and_tighten(screw):
+    if screw < 5:
+       screw_1.tightness = screw
+       screw_1.tighten()
+
+    if screw > 5:
+       screw_1.tightness = screw
+       screw_1.loosen(screw)
+
+    return screw_1.__str__()
+
+print(loosen_and_tighten(2))
+
+
+
