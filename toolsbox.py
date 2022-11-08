@@ -1,73 +1,108 @@
-class Toolsbox:
-    """difine one toolsbox"""
+class ToolBox:
+    """toolsbox"""
+
     def __init__(self):
-        #init tools
+        """init tool."""
         self.tools = []
 
-        #add tool
-    def add_tool(self,tool) :
-        pass  
+    def add_tool(self,tool):
+        """add tool."""
+        self.tools.append(tool)
 
     def remove_tool(self,tool):
-        #remove tools 
-        pass
+        """Enleve un outil."""
+        index = self.tools.index(tool)
+        del self.tools[index]
+
+ 
+
+class Screwdriver:
+    """Tournevis."""
+
+    def __init__(self, size=3):
+        """Init size"""
+        self.size = size
+    
+    def tighten(self, screw):
+        """Serrer une vis."""
+        screw.tighten()
+    
+    def loosen(self, screw):
+        """Desserre une vis."""
+        screw.loosen()
+    
+    def __repr__(self):
+        """Représentation de l'objet."""
+        return f"Tournevis de taille {self.size}"
 
 
 class Hammer:
-    """define hammer"""
-    def __init__(self,color="red") :
-        #init colors
+    """Marteau."""
+
+    def __init__(self, color="red"):
+        """Initialise la couleur."""
         self.color = color
-
-    def paint(self,color):
-        """paint hammer"""
+    
+    def paint(self, color):
+        """Paint le marteau."""
         self.color = color
-        pass
+    
+    def hammer_in(self, nail):
+        """Enfonce un clou."""
+        nail.nail_in()
+    
+    def remove(self, nail):
+        """Enleve un clou."""
+        nail.remove()
+    
+    def __repr__(self):
+        """Représentation de l'objet."""
+        return f"Marteau de couleur {self.color}"
 
-    def hammer_in(self,nail):
-        """drive the nail"""
-        pass
 
-    def remove_nail(self,nail):
-        """remove nail"""
-        pass
-
-        class screwdriver:
-            """define screwdriver"""
-            def __init__(self, size):
-                # init size
-                self.size = size
-
-            def tighten_screw(self,screw):
-                """tighten screw"""    
-                pass
-            def loosen_screw(self,screw):
-                """loosen screw"""
-                pass
-
-class Crewn:
-    """vis"""
+class Screw:
+    """Vis."""
+     
     MAX_TIGHTNESS = 5
-    def __init__(self) :
-        """initialise le degre de  serage"""
-        self.tightness = 0 
-
+    
+    def __init__(self):
+        """Initialise son degré de serrage."""
+        self.tightness = 0
+    
     def loosen(self):
-        """loosen crewn"""
+        """Déserre le vis."""
         if self.tightness > 0:
-            self.tightness -= 1
-
+           self.tightness -= 1
+    
     def tighten(self):
-        """tighten crewn"""
-        if self.tightness < 0:
-            self.tightness += 1
-
+        """Serre le vis."""
+        if self.tightness < self.MAX_TIGHTNESS:
+           self.tightness += 1
+    
     def __str__(self):
-        """retourne une forme visible de l objet"""
-        return "the tighten screw is {}".format(self.tightness)   
+        """Retourne une forme lisible de l'objet."""
+        return "Vis avec un serrage de {}".format(self.tightness)
 
 
-        
+class Nail:
+    """Clou."""
+    
+    def __init__(self):
+        """Initialise son statut "dans le mur"."""
+        self.in_wall = False
+    
+    def nail_in(self):
+        """Enfonce le clou dans un mur."""
+        if not self.in_wall:
+           self.in_wall = True
+    
+    def remove(self):
+        """Enlève le clou du mur."""
+        if self.in_wall:
+           self.in_wall = False
+    
+    def __str__(self):
+        """Retourne une forme lisible de l'objet."""
+        wall_state = "dans le mur" if self.in_wall else "hors du mur"
+        return f"Clou {wall_state}."
 
-
-        
